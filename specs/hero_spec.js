@@ -9,6 +9,7 @@ describe("Hero", function(){
     hero = new Hero("Hayley", 3000, "Cheese");
     task = new Task("Complete task tests", 3, 1, 10);
     food1 = new Food("Apple", 5);
+    heroFavFood = new Food("Cheese", 20);
   });
 
   it('should have a name', function(){
@@ -44,5 +45,15 @@ describe("Hero", function(){
     // assert
     assert.strictEqual(hero.health, expected);
   });
+
+  it('should have the health go up by 1.5 * replenValue if they eat their favourite food', function(){
+    //arrange
+    var replenishment = heroFavFood.replenValue * 1.5;
+    var expected = hero.health + replenishment;
+    //act
+    hero.eat(heroFavFood);
+    //assert
+    assert.strictEqual(hero.health, expected);
+  })
 
 });
