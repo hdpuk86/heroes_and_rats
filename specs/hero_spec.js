@@ -8,7 +8,7 @@ describe("Hero", function(){
     hero = new Hero("Hayley", 3000, "Cheese");
     // task = new Task("Complete task tests", 3, 1, 10);
   });
-
+  
   it('should have a name', function(){
     assert.strictEqual(hero.name, "Hayley");
   });
@@ -30,6 +30,7 @@ describe("Hero", function(){
   });
 
   it('should be able to add a task to task list', function(){
+
     hero.addTask(task);
     assert.strictEqual(hero.tasks.length, 1);
   });

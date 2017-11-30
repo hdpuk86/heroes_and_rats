@@ -36,7 +36,8 @@ describe("task tests", function(){
   });
 
   // A task should be able to be marked as completed
-  xit('should be able to be marked complete', function(){
+  it('should be able to be marked complete', function(){
+    task.markComplete();
     assert.strictEqual(task.complete, true);
   });
 
