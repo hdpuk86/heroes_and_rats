@@ -1,37 +1,43 @@
 var assert = require('assert');
-var Hero = require('../hero.js');
 var Task = require('../task.js');
 
-describe("Hero", function(){
+
+describe("task tests", function(){
 
   beforeEach(function(){
-    hero = new Hero("Hayley", 3000, "Cheese");
+    // task should be instatiated with a description, difficulty (1-5 ?), urgency (1-5 ?), reward
+    // tasks should be constructed with a complete boolean, false by default ?
     task = new Task("Complete task tests", 3, 1, 10);
   });
 
-it('should have a name', function(){
-  assert.strictEqual(hero.name, "Hayley");
-});
+  // A task has a description
+  it('should have a description', function(){
+    assert.strictEqual(task.description, "Complete task tests");
+  });
 
-it('should have health'), function(){
-  assert.strictEqual(hero.health, 3000);
-};
+  // A task has a difficulty level
+  it('should have a difficulty level', function(){
+    assert.strictEqual(task.difficulty, 3);
+  });
 
-it('should have a favourite food', function(){
-  assert.strictEqual(hero.favouriteFood, "Cheese");
-});
+  // A task has an urgency level
+  it('should have an urgency level', function(){
+    assert.strictEqual(task.urgency, 1);
+  });
 
-it('should talk, saying their name', function(){
-  assert.strictEqual(hero.talk, "My name is Hayley");
-});
+  // A task has a reward
+  it('should have a reward', function(){
+    assert.strictEqual(task.reward, 10);
+  });
 
-it('should have a collection of tasks to complete which starts empty', function(){
-    assert.strictEqual(hero.tasks.length, 0);
-});
+  // A task should start as incompleted
+  it('should be incomplete by default', function(){
+    assert.strictEqual(task.complete, false);
+  });
 
-it('should be able to add a task to task list', function(){
-    hero.addTask(task);
-    assert.strictEqual(hero.tasks.length, 1);
-});
+  // A task should be able to be marked as completed
+  it('should be able to be marked complete', function(){
+    assert.strictEqual(task.complete, true);
+  });
 
 });
