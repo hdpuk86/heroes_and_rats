@@ -3,7 +3,7 @@ var Hero = function(name, health, fav_food){
   this.health = health;
   this.favouriteFood = fav_food;
   this.tasks = [];
-}
+};
 
 Hero.prototype = {
   talk: function(){
@@ -13,9 +13,12 @@ Hero.prototype = {
     this.tasks.push(task);
   },
   eat: function(food){
-    this.health += food.replenValue;
+    if(food.name === this.favouriteFood){
+      this.health += food.replenValue * 1.5;
+    } else {
+      this.health += food.replenValue;
+    }
   }
-}
-
+};
 
 module.exports = Hero;
